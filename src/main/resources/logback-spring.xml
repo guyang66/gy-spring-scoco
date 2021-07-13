@@ -2,7 +2,8 @@
 <configuration>
 	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
 	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
-	<property name="LOG_PATH" value="/Users/guyang/Desktop/demo"/>
+<!--	<property name="LOG_PATH" value="/Users/guyang/Desktop/demo"/>-->
+	<springProperty scope="context" name="LOG_PATH" source="logback.loghome"/>
 	<appender name="TOMCAT" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${LOG_PATH}/tomcat.log</file>
 		<append>true</append>
