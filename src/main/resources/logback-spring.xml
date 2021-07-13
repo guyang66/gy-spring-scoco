@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	<property name="LOG_PATH" value="/Users/guyang/Desktop/demo"/>
+	<appender name="TOMCAT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/tomcat.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/tomcat.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="CACHE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/cache.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/cache.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="COMMON" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/common.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/common.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="DB" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="com.guyang.common.filter.DbConneInfoFilter" />
+		<file>${LOG_PATH}/db.log</file>
+		<append>true</append>
+		<param name="datePattern" value=".yyyy-MM-dd" />
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/db.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>`
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="DRUID" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/druid.log</file>
+		<append>true</append>
+		<param name="datePattern" value=".yyyy-MM-dd" />
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/druid.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/error.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="MONITOR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/monitor.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/monitor.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="REDIS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/redis.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/redis.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>3</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>50MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="RMI" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/rmi.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/rmi.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="MQ" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/mq.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/mq.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="SECURE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/secure.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/secure.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="SCHEDULE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/schedule.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/schedule.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="SPRING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/spring.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/spring.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="SEARCH" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/search.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/search.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.apache.tomcat" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="TOMCAT" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<logger name="org.apache.catalina" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="TOMCAT" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<logger name="com.alibaba.druid" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="DRUID" />
+	</logger>
+	<logger name="druid.sql" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="DRUID" />
+	</logger>
+
+
+	<logger name="com.guyang.dao" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="DB" />
+		<appender-ref ref="ERROR" />
+	</logger>
+
+
+	<logger name="java.sql" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="DB" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<logger name="java.sql.ResultSet" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="DB" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<logger name="net.sf.ehcache">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.apache">
+		<level value="WARN" />
+	</logger>
+	<logger name="org.apache.commons.beanutils.converters">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.apache.velocity">
+		<level value="INFO" />
+	</logger>
+	<logger name="org.mybatis.spring" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="SPRING" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<logger name="org.quartz" additivity="false">
+		<level value="info" />
+		<appender-ref ref="SCHEDULE" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<logger name="schedule" additivity="false">
+		<level value="info" />
+		<appender-ref ref="SCHEDULE" />
+		<appender-ref ref="ERROR" />
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="SPRING" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<logger name="org.springframework.security">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.springframework.scheduling" additivity="false">
+		<level value="info" />
+		<appender-ref ref="SCHEDULE" />
+		<appender-ref ref="ERROR" />
+	</logger>
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="COMMON" />
+		<appender-ref ref="ERROR" />
+	</root>
+</configuration>

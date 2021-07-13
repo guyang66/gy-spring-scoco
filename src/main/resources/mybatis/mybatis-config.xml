@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--通过这个配置文件，完成mybatis与数据库的连接  -->
+<configuration>
+	<!-- 注意此配置文件内的元素的  -->
+	<!-- 引入database.properties文件 -->
+	<properties resource="database.properties"/>
+	<!--配置mybatis的log实现为LOG4J  -->
+	<!-- 配置后，后台就会有sql语句的输出 -->
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	<!-- 设置类的别名 -->
+	<typeAliases>
+		<!-- <typeAlias alias="User" type="com.wu.pojo.User"/> -->
+		<!-- 根据包取别名，把包下面的所有类都按类名来取别名 -->
+		<!-- 这用可以简化代码量 -->
+		<typeAlias alias="Integer" type="java.lang.Integer" />
+		<typeAlias alias="Long" type="java.lang.Long" />
+		<typeAlias alias="HashMap" type="java.util.HashMap" />
+		<typeAlias alias="LinkedHashMap" type="java.util.LinkedHashMap" />
+		<typeAlias alias="ArrayList" type="java.util.ArrayList" />
+		<typeAlias alias="LinkedList" type="java.util.LinkedList" />
+	</typeAliases>
+
+
+	<!--<environments default="development">-->
+		<!--<environment id="development">-->
+			<!--&lt;!&ndash; 配置事务管理 ，采用JDBC管理事务&ndash;&gt;-->
+			<!--<transactionManager type="JDBC"/>-->
+			<!--&lt;!&ndash; POOLED是mybatis的 数据源 &ndash;&gt;-->
+			<!--&lt;!&ndash; JNDI是基于tomcat的数据源 &ndash;&gt;-->
+			<!--<dataSource type="POOLED">-->
+				<!--<property name="driver" value="${driver}"/>-->
+				<!--<property name="url" value="${url}"/>-->
+				<!--<property name="username" value="${username}"/>-->
+				<!--<property name="password" value="${password}"/>-->
+			<!--</dataSource>-->
+		<!--</environment>-->
+	<!--</environments>-->
+
+
+
+	 <!--&lt;!&ndash;pojo的映射文件UserMapper引入到配入到配置文件中 &ndash;&gt;-->
+	<!--<mappers>-->
+		<!--&lt;!&ndash; resource要写成路径 &ndash;&gt;-->
+		<!--<mapper class="com.guyang.mapper.enrollMapper"></mapper>-->
+		<!--<package name="com.guyang.mapper"></package>-->
+	<!--</mappers>-->
+</configuration>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace = "com.guyang.mapper.UserAddressMapper">-->
+<mapper namespace = "com.guyang.dao.UserAddressDao">
+    <resultMap id="BaseResultMap" type="com.guyang.entity.UserAddress" extends="COMMON.BASE_RESULT_MAP">
+        <result column = "user_id" property = "userId" />
+        <result column = "consignee" property = "consignee" />
+        <result column = "consignee_mobile" property = "consigneeMobile" />
+        <result column = "email" property = "email" />
+        <result column = "province_id" property = "provinceId" />
+        <result column = "city_id" property = "cityId" />
+        <result column = "district_id" property = "districtId" />
+        <result column = "address" property = "address" />
+        <result column = "is_default" property = "isDefault" />
+        <result column = "street_id" property = "streetId" />
+    </resultMap>
+
+    <sql id = "BaseWhereClause">
+        <where>
+            <trim prefixOverrides = "and">
+                <include refid = "COMMON.BASE_WHERE_CLAUSE" />
+                <if test = "userId != null">
+                    and user_id = #{userId}
+                </if>
+                <if test = "consignee != null">
+                    and consignee = #{consignee}
+                </if>
+                <if test = "consigneeMobile != null">
+                    and consignee_mobile = #{consigneeMobile}
+                </if>
+                <if test = "email != null">
+                    and email = #{email}
+                </if>
+                <if test = "provinceId != null">
+                    and province_id = #{provinceId}
+                </if>
+                <if test = "cityId != null">
+                    and city_id = #{cityId}
+                </if>
+                <if test = "districtId != null">
+                    and district_id = #{districtId}
+                </if>
+                <if test = "address != null">
+                    and address = #{address}
+                </if>
+                <if test = "isDefault != null">
+                    and is_default = #{isDefault}
+                </if>
+                <if test = "streetId != null">
+                    and street_id = #{streetId}
+                </if>
+            </trim>
+        </where>
+    </sql>
+
+    <sql id = "BaseUpdateSet">
+        <set>
+            <include refid = "COMMON.BASE_UPDATE_SET" />
+            <if test = "userId != null">
+                user_id = #{userId},
+            </if>
+            <if test = "consignee != null">
+                consignee = #{consignee},
+            </if>
+            <if test = "consigneeMobile != null">
+                consignee_mobile = #{consigneeMobile},
+            </if>
+            <if test = "email != null">
+                email = #{email},
+            </if>
+            <if test = "provinceId != null">
+                province_id = #{provinceId},
+            </if>
+            <if test = "cityId != null">
+                city_id = #{cityId},
+            </if>
+            <if test = "districtId != null">
+                district_id = #{districtId},
+            </if>
+            <if test = "address != null">
+                address = #{address},
+            </if>
+            <if test = "isDefault != null">
+                is_default = #{isDefault},
+            </if>
+            <if test = "streetId != null">
+                street_id = #{streetId}
+            </if>
+        </set>
+    </sql>
+
+    <select id = "selectById" resultMap = "BaseResultMap">
+        select
+        <include refid = "COMMON.ALL_COLUMN_LIST" />
+        from address
+        where id = #{id}
+    </select>
+    
+    <select id="saveAddressByUserId" >
+
+    </select>
+
+
+</mapper>

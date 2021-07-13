@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+状态码：<span th:text="${code}"></span><br>
+消息：<span th:text="${msg}"></span>
+数据：<span th:text="${data.address}"></span>
+id：<span th:text="${data.id}"></span>
+<div>
+    我的地址(id:1001)从数据库查到为:
+</div>
+<span th:text="${data}">
+</span>
+</body>
+</html>
